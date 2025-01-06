@@ -4,6 +4,10 @@
  */
 package com.criminals.view;
 
+import com.criminals.controller.Algorithm.InsertionSort;
+import com.criminals.controller.Algorithm.MergeSort;
+import com.criminals.controller.Algorithm.SelectionSort;
+import com.criminals.model.MostWantedmodel;
 import com.criminals.model.criminalmodel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -13,19 +17,25 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author user
+ * @author Shuva Nath Shrestha
+ * 23048621
  */
 public class AdminHomepage extends javax.swing.JFrame {
     ArrayList<criminalmodel> Criminal = new ArrayList<criminalmodel>();
+    ArrayList<MostWantedmodel> MostWanted = new ArrayList<MostWantedmodel>();
+    
     
     private DefaultTableModel tableModel;
+    private DefaultTableModel tableModel1;
     /**
      * Creates new form AdminHomepage
      */
     public AdminHomepage() {
         initComponents();
         addInitialCriminalInformation();
+        addWantedCriminalInformation();
         tableModel = (DefaultTableModel) tblAdminInCustody.getModel();
+        tableModel1 = (DefaultTableModel) tblMostWanted.getModel();
     }
     
     private void addInitialCriminalInformation(){
@@ -50,11 +60,40 @@ public class AdminHomepage extends javax.swing.JFrame {
         Criminal.add(Criminal5);
         addDataToTable(Criminal5);
     }
+    private void addWantedCriminalInformation(){
+        MostWantedmodel Criminal1 = new MostWantedmodel(01,"Sean Combs","Racketeering Conspiracy",500);
+        MostWantedmodel Criminal2 = new MostWantedmodel(02,"Patrick Wood Crusius","Perpetrator of the El Paso Shooting",521);
+        MostWantedmodel Criminal3 = new MostWantedmodel(03,"Terry Nichols","161 counts of first degree murder",623);
+        MostWantedmodel Criminal4 = new MostWantedmodel(04,"Bowers Robert","Mass shooting",784);
+        MostWantedmodel Criminal5 = new MostWantedmodel(05,"Barry Walker","Serial Rapist",896);
+
+        MostWanted.add(Criminal1);
+        addDataToTable1(Criminal1);
+
+        MostWanted.add(Criminal2);
+        addDataToTable1(Criminal2);
+
+        MostWanted.add(Criminal3);
+        addDataToTable1(Criminal3);
+
+        MostWanted.add(Criminal4);
+        addDataToTable1(Criminal4);
+
+        MostWanted.add(Criminal5);
+        addDataToTable1(Criminal5);
+    }
+
+    
     
     private void addDataToTable(criminalmodel student)
     {
         tableModel = (DefaultTableModel) tblAdminInCustody.getModel();
         tableModel.addRow(new Object[]{student.getId(), student.getName(), student.getCrime(), student.getSentence()});
+    }
+    private void addDataToTable1(MostWantedmodel student)
+    {
+        tableModel1 = (DefaultTableModel) tblMostWanted.getModel();
+        tableModel1.addRow(new Object[]{student.getId(), student.getName(), student.getCrime(), student.getBounty()});
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,7 +107,6 @@ public class AdminHomepage extends javax.swing.JFrame {
         pnlAdminPage = new javax.swing.JPanel();
         lblIcon = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
-        lblSearch = new javax.swing.JLabel();
         btnLogOut = new javax.swing.JButton();
         tpaneAdminpage = new javax.swing.JTabbedPane();
         pnlAdminHome = new javax.swing.JPanel();
@@ -82,7 +120,8 @@ public class AdminHomepage extends javax.swing.JFrame {
         lblRespondACrime = new javax.swing.JLabel();
         pnlAdminMWanted = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblMostWanted = new javax.swing.JTable();
+        CmbBxSorting = new javax.swing.JComboBox<>();
         pnlAdminInCustody = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAdminInCustody = new javax.swing.JTable();
@@ -93,8 +132,11 @@ public class AdminHomepage extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
+        CmbBxSort = new javax.swing.JComboBox<>();
         pnlAdminHelp = new javax.swing.JPanel();
         pnlAdminContact = new javax.swing.JPanel();
+        btnSearch = new javax.swing.JButton();
+        txtFieldSearch = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,8 +146,6 @@ public class AdminHomepage extends javax.swing.JFrame {
 
         lblTitle.setFont(new java.awt.Font("Sitka Heading", 0, 36)); // NOI18N
         lblTitle.setText("Criminal Log");
-
-        lblSearch.setText("Search");
 
         btnLogOut.setText("LogOut");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -197,28 +237,39 @@ public class AdminHomepage extends javax.swing.JFrame {
 
         pnlAdminMWanted.setBackground(new java.awt.Color(255, 255, 204));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblMostWanted.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Name", "Crime", "Bounty"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblMostWanted);
+
+        CmbBxSorting.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sort by Id", "Sort by Name", "Sort by Bounty" }));
+        CmbBxSorting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CmbBxSortingActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlAdminMWantedLayout = new javax.swing.GroupLayout(pnlAdminMWanted);
         pnlAdminMWanted.setLayout(pnlAdminMWantedLayout);
         pnlAdminMWantedLayout.setHorizontalGroup(
             pnlAdminMWantedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1612, Short.MAX_VALUE)
+            .addGroup(pnlAdminMWantedLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(CmbBxSorting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlAdminMWantedLayout.setVerticalGroup(
             pnlAdminMWantedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
+            .addGroup(pnlAdminMWantedLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CmbBxSorting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 31, Short.MAX_VALUE))
         );
 
         tpaneAdminpage.addTab("Most Wanted", pnlAdminMWanted);
@@ -261,6 +312,13 @@ public class AdminHomepage extends javax.swing.JFrame {
             }
         });
 
+        CmbBxSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sort by Id", "Sort by Names" }));
+        CmbBxSort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CmbBxSortActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlAdminInCustodyLayout = new javax.swing.GroupLayout(pnlAdminInCustody);
         pnlAdminInCustody.setLayout(pnlAdminInCustodyLayout);
         pnlAdminInCustodyLayout.setHorizontalGroup(
@@ -278,14 +336,17 @@ public class AdminHomepage extends javax.swing.JFrame {
                         .addGap(140, 140, 140)
                         .addComponent(btnRemove))
                     .addComponent(txtFieldCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(pnlAdminInCustodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlAdminInCustodyLayout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(btnUpdate))
+                .addGroup(pnlAdminInCustodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlAdminInCustodyLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(txtFieldSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(100, 100, 100))
+                        .addComponent(txtFieldSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100))
+                    .addGroup(pnlAdminInCustodyLayout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(btnUpdate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CmbBxSort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         pnlAdminInCustodyLayout.setVerticalGroup(
             pnlAdminInCustodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +363,8 @@ public class AdminHomepage extends javax.swing.JFrame {
                 .addGroup(pnlAdminInCustodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnAdd)
-                    .addComponent(btnRemove))
+                    .addComponent(btnRemove)
+                    .addComponent(CmbBxSort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
         );
 
@@ -338,6 +400,15 @@ public class AdminHomepage extends javax.swing.JFrame {
 
         tpaneAdminpage.addTab("Contact Us", pnlAdminContact);
 
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        txtFieldSearch.setText("Search here");
+
         javax.swing.GroupLayout pnlAdminPageLayout = new javax.swing.GroupLayout(pnlAdminPage);
         pnlAdminPage.setLayout(pnlAdminPageLayout);
         pnlAdminPageLayout.setHorizontalGroup(
@@ -354,22 +425,26 @@ public class AdminHomepage extends javax.swing.JFrame {
                     .addComponent(tpaneAdminpage)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAdminPageLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblSearch)))
+                        .addComponent(txtFieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearch)))
                 .addContainerGap())
         );
         pnlAdminPageLayout.setVerticalGroup(
             pnlAdminPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAdminPageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlAdminPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIcon)
+                .addGroup(pnlAdminPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAdminPageLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(pnlAdminPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTitle)
-                            .addComponent(btnLogOut))))
+                            .addComponent(btnLogOut)))
+                    .addComponent(lblIcon))
                 .addGap(18, 18, 18)
-                .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlAdminPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearch)
+                    .addComponent(txtFieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(tpaneAdminpage, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -562,6 +637,127 @@ public class AdminHomepage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRemoveActionPerformed
 
+    private void CmbBxSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbBxSortActionPerformed
+
+        // TODO add your handling code here:
+        String Value = (String) CmbBxSort.getSelectedItem();
+
+        if (Value == "Sort by Id"){
+            SelectionSort selectionSort = new SelectionSort();
+        Criminal = (ArrayList<criminalmodel>) selectionSort.sortByCriminalId(Criminal, false);
+
+        // Clear and reload table
+        tableModel.setRowCount(0);
+        for(criminalmodel criminal : Criminal) {
+            addDataToTable(criminal);
+        }
+
+        }
+        else if (Value == "Sort by Names"){
+            MergeSort selectionSort = new MergeSort();
+        Criminal = (ArrayList<criminalmodel>) selectionSort.sortByName(Criminal, false);
+
+        // Clear and reload table
+        tableModel.setRowCount(0);
+        for(criminalmodel criminal : Criminal) {
+            addDataToTable(criminal);
+        }
+        }
+    
+    }//GEN-LAST:event_CmbBxSortActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String searchTerm = txtFieldSearch.getText().trim();
+
+        // Validate search input
+        if (searchTerm.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter a name to search", 
+                "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        // First clear any previous highlights/selections in table
+        tblAdminInCustody.clearSelection();
+
+        // Search directly in the table model
+        DefaultTableModel model = (DefaultTableModel) tblAdminInCustody.getModel();
+        boolean found = false;
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String nameInTable = model.getValueAt(i, 1).toString().trim(); // Column 1 contains names
+
+            // Case-insensitive partial match
+            if (nameInTable.toLowerCase().contains(searchTerm.toLowerCase())) {
+                // Select and scroll to the found row
+                tblAdminInCustody.setRowSelectionInterval(i, i);
+                tblAdminInCustody.scrollRectToVisible(tblAdminInCustody.getCellRect(i, 0, true));
+
+                // Display the details in text fields
+                txtFieldId.setText(model.getValueAt(i, 0).toString());
+                txtFieldName.setText(nameInTable);
+                txtFieldCrime.setText(model.getValueAt(i, 2).toString());
+                txtFieldSentence.setText(model.getValueAt(i, 3).toString());
+
+                found = true;
+                break;  // Remove this if you want to find all matches
+            }
+        }
+
+        if (!found) {
+            JOptionPane.showMessageDialog(this, 
+                "No criminal found with name containing: " + searchTerm, 
+                "Not Found", 
+                JOptionPane.INFORMATION_MESSAGE);
+
+            // Clear the text fields if nothing is found
+            txtFieldId.setText("");
+            txtFieldName.setText("");
+            txtFieldCrime.setText("");
+            txtFieldSentence.setText("");
+        }
+
+
+     System.out.println("Sorry");
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void CmbBxSortingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbBxSortingActionPerformed
+        // TODO add your handling code here:
+        String Value = (String) CmbBxSorting.getSelectedItem();
+
+        if (Value == "Sort by Id"){
+            
+            SelectionSort selectionSort = new SelectionSort();
+            MostWanted = (ArrayList<MostWantedmodel>) selectionSort.sortByWantedId(MostWanted, false);
+
+        // Clear and reload table
+        tableModel1.setRowCount(0);
+        for(MostWantedmodel criminal : MostWanted) {
+            addDataToTable1(criminal);
+        }
+        }
+        //Insertion Sort
+        else if(Value == "Sort by Name"){
+        InsertionSort insertionSort = new InsertionSort();
+        MostWanted = (ArrayList<MostWantedmodel>) insertionSort.sortByName(MostWanted, false);
+
+        // Clear and reload table
+        tableModel1.setRowCount(0);
+        for(MostWantedmodel criminal : MostWanted) {
+            addDataToTable1(criminal);
+        }
+        }
+        else if(Value == "Sort by Bounty"){
+            SelectionSort selectionSort = new SelectionSort();
+            MostWanted = (ArrayList<MostWantedmodel>) selectionSort.sortByBounty(MostWanted, false);
+        // Clear and reload table
+        tableModel1.setRowCount(0);
+        for(MostWantedmodel criminal : MostWanted) {
+            addDataToTable1(criminal);
+        }
+        }
+    }//GEN-LAST:event_CmbBxSortingActionPerformed
+    
+
     /**
      * @param args the command line arguments
      */
@@ -598,13 +794,15 @@ public class AdminHomepage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CmbBxSort;
+    private javax.swing.JComboBox<String> CmbBxSorting;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblBackgrounImg;
     private javax.swing.JLabel lblCrimeStats;
     private javax.swing.JLabel lblGetRapSheet;
@@ -613,7 +811,6 @@ public class AdminHomepage extends javax.swing.JFrame {
     private javax.swing.JLabel lblLearn;
     private javax.swing.JLabel lblLeaveATip;
     private javax.swing.JLabel lblRespondACrime;
-    private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlAdminContact;
     private javax.swing.JPanel pnlAdminHelp;
@@ -623,10 +820,12 @@ public class AdminHomepage extends javax.swing.JFrame {
     private javax.swing.JPanel pnlAdminPage;
     private javax.swing.JPanel pnlHomeinfo;
     private javax.swing.JTable tblAdminInCustody;
+    private javax.swing.JTable tblMostWanted;
     private javax.swing.JTabbedPane tpaneAdminpage;
     private javax.swing.JTextField txtFieldCrime;
     private javax.swing.JTextField txtFieldId;
     private javax.swing.JTextField txtFieldName;
+    private javax.swing.JTextField txtFieldSearch;
     private javax.swing.JTextField txtFieldSentence;
     // End of variables declaration//GEN-END:variables
 
