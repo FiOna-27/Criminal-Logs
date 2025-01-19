@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author user
+ * @author Shuva Nath Shrestha 23048621
  */
 public class Register extends javax.swing.JFrame {
 
@@ -32,23 +32,24 @@ public class Register extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
         lblPass = new javax.swing.JLabel();
-        DetectiveId = new javax.swing.JTextField();
-        DetectivePass = new javax.swing.JTextField();
+        txtFldDetectiveId = new javax.swing.JTextField();
+        txtFldDetectivePassword = new javax.swing.JTextField();
         btnValidate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlRegister.setBackground(new java.awt.Color(255, 255, 204));
 
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblTitle.setText("Register");
 
         lblId.setText("Detective id");
 
         lblPass.setText("Password");
 
-        DetectiveId.addActionListener(new java.awt.event.ActionListener() {
+        txtFldDetectiveId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DetectiveIdActionPerformed(evt);
+                txtFldDetectiveIdActionPerformed(evt);
             }
         });
 
@@ -70,13 +71,13 @@ public class Register extends javax.swing.JFrame {
                         .addGroup(pnlRegisterLayout.createSequentialGroup()
                             .addComponent(lblPass)
                             .addGap(55, 55, 55)
-                            .addComponent(DetectivePass, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtFldDetectivePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlRegisterLayout.createSequentialGroup()
                         .addComponent(lblId)
                         .addGap(43, 43, 43)
                         .addGroup(pnlRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTitle)
-                            .addComponent(DetectiveId, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtFldDetectiveId, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         pnlRegisterLayout.setVerticalGroup(
@@ -87,14 +88,14 @@ public class Register extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(pnlRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblId)
-                    .addComponent(DetectiveId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFldDetectiveId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(pnlRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPass)
-                    .addComponent(DetectivePass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFldDetectivePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(btnValidate)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,24 +116,20 @@ public class Register extends javax.swing.JFrame {
 
     private void btnValidateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidateActionPerformed
         // TODO add your handling code here:
-        if (DetectiveId.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"please fill your id");
-        }
-        else if (DetectivePass.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"please fill password");
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Validation will take a few Days. Please continue using the Normal version.");
-            HomePage hp = new HomePage();
-            hp.show();
+        if (txtFldDetectiveId.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "please fill your id");
+        } else if (txtFldDetectivePassword.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "please fill password");
+        } else {
+            JOptionPane.showMessageDialog(null, "Validation will take a few Days. Please wait patiently");
             dispose();
         }
-        
+
     }//GEN-LAST:event_btnValidateActionPerformed
 
-    private void DetectiveIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetectiveIdActionPerformed
+    private void txtFldDetectiveIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldDetectiveIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DetectiveIdActionPerformed
+    }//GEN-LAST:event_txtFldDetectiveIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,12 +167,12 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField DetectiveId;
-    private javax.swing.JTextField DetectivePass;
     private javax.swing.JButton btnValidate;
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlRegister;
+    private javax.swing.JTextField txtFldDetectiveId;
+    private javax.swing.JTextField txtFldDetectivePassword;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,7 +6,7 @@ package com.criminals.view;
 
 /**
  *
- * @author user
+ * @author Shuva Nath Shrestha 23048621
  */
 public class LoadingScreen extends javax.swing.JFrame {
 
@@ -26,43 +26,42 @@ public class LoadingScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlLoadinScreen = new javax.swing.JPanel();
+        pnlLoadingScreen = new javax.swing.JPanel();
         lblLoadingPicture = new javax.swing.JLabel();
-        LblLoadingLevel = new javax.swing.JLabel();
-        PrgBarLoading = new javax.swing.JProgressBar();
+        lblLoadingLevel = new javax.swing.JLabel();
+        prgBarLoading = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnlLoadinScreen.setBackground(new java.awt.Color(255, 255, 204));
+        pnlLoadingScreen.setBackground(new java.awt.Color(255, 255, 204));
 
-        lblLoadingPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/criminals/view/CSI-599586360.jpg"))); // NOI18N
-        lblLoadingPicture.setText("jLabel3");
+        lblLoadingPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/criminals/resources/LoadinScreenPicture.jpg"))); // NOI18N
 
-        LblLoadingLevel.setText("0%");
+        lblLoadingLevel.setText("0%");
 
-        PrgBarLoading.setBorder(null);
+        prgBarLoading.setBorder(null);
 
-        javax.swing.GroupLayout pnlLoadinScreenLayout = new javax.swing.GroupLayout(pnlLoadinScreen);
-        pnlLoadinScreen.setLayout(pnlLoadinScreenLayout);
-        pnlLoadinScreenLayout.setHorizontalGroup(
-            pnlLoadinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlLoadinScreenLayout.createSequentialGroup()
-                .addGroup(pnlLoadinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlLoadingScreenLayout = new javax.swing.GroupLayout(pnlLoadingScreen);
+        pnlLoadingScreen.setLayout(pnlLoadingScreenLayout);
+        pnlLoadingScreenLayout.setHorizontalGroup(
+            pnlLoadingScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLoadingScreenLayout.createSequentialGroup()
+                .addGroup(pnlLoadingScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblLoadingPicture, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoadinScreenLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoadingScreenLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(LblLoadingLevel)))
+                        .addComponent(lblLoadingLevel)))
                 .addContainerGap())
-            .addComponent(PrgBarLoading, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1414, Short.MAX_VALUE)
+            .addComponent(prgBarLoading, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1353, Short.MAX_VALUE)
         );
-        pnlLoadinScreenLayout.setVerticalGroup(
-            pnlLoadinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlLoadinScreenLayout.createSequentialGroup()
+        pnlLoadingScreenLayout.setVerticalGroup(
+            pnlLoadingScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLoadingScreenLayout.createSequentialGroup()
                 .addComponent(lblLoadingPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LblLoadingLevel)
+                .addComponent(lblLoadingLevel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PrgBarLoading, javax.swing.GroupLayout.DEFAULT_SIZE, 14, Short.MAX_VALUE))
+                .addComponent(prgBarLoading, javax.swing.GroupLayout.DEFAULT_SIZE, 14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -71,13 +70,13 @@ public class LoadingScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(pnlLoadinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlLoadingScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlLoadinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlLoadingScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,35 +109,34 @@ public class LoadingScreen extends javax.swing.JFrame {
         }
         //</editor-fold>
         /* Create and display the form */
-        LoadingScreen sc= new LoadingScreen();
+        LoadingScreen sc = new LoadingScreen();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 sc.setVisible(true);
             }
         });
         try {
-            for (int i=0; i <=100; i++)
-            {
-             
+            for (int i = 0; i <= 100; i++) {
+
                 Thread.sleep(15);
-                sc.PrgBarLoading.setValue(i);
-                sc.LblLoadingLevel.setText(Integer.toString(i)+"%");
+                sc.prgBarLoading.setValue(i);
+                sc.lblLoadingLevel.setText(Integer.toString(i) + "%");
             }
-        } catch (Exception e) {   
+        } catch (Exception e) {
         }
-        //Homepage screen
-        HomePage hp = new HomePage();
+        //Log-in Screen
+        Login log = new Login();
         // close or  hide before loading completes.
         sc.setVisible(false);
-        hp.setVisible(true);//show homepage
+        log.setVisible(true);//show homepage
         //close loading screen
         sc.dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LblLoadingLevel;
-    private javax.swing.JProgressBar PrgBarLoading;
+    private javax.swing.JLabel lblLoadingLevel;
     private javax.swing.JLabel lblLoadingPicture;
-    private javax.swing.JPanel pnlLoadinScreen;
+    private javax.swing.JPanel pnlLoadingScreen;
+    private javax.swing.JProgressBar prgBarLoading;
     // End of variables declaration//GEN-END:variables
 }

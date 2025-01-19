@@ -4,7 +4,7 @@
  */
 package com.criminals.controller.Algorithm;
 
-import com.criminals.model.criminalmodel;
+import com.criminals.model.CriminalModel;
 import java.util.List;
 
 /**
@@ -12,7 +12,7 @@ import java.util.List;
  * @author user
  */
 public class Search {
-    public criminalmodel searchByName(String searchValue, List<criminalmodel> studentList,
+    public CriminalModel searchByName(String searchValue, List<CriminalModel> CriminalList,
             int left, int right) {
 
         // Base Case
@@ -24,12 +24,12 @@ public class Search {
         int mid = (left + right) / 2;
 
         // checks whether searchKey lies on mid point
-        if (searchValue.compareToIgnoreCase(studentList.get(mid).getName()) == 0) {
-            return studentList.get(mid);
-        } else if (searchValue.compareToIgnoreCase(studentList.get(mid).getName()) < 0) {
-            return searchByName(searchValue, studentList, left, mid - 1);
+        if (searchValue.compareToIgnoreCase(CriminalList.get(mid).getName()) == 0) {
+            return CriminalList.get(mid);
+        } else if (searchValue.compareToIgnoreCase(CriminalList.get(mid).getName()) < 0) {
+            return searchByName(searchValue, CriminalList, left, mid - 1);
         } else {
-            return searchByName(searchValue, studentList, mid + 1, right);
+            return searchByName(searchValue, CriminalList, mid + 1, right);
         }
 
     }

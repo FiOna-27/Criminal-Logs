@@ -6,15 +6,15 @@ package com.criminals.model;
 
 /**
  *
- * @author user
+ * @author Shuva Nath Shrestha 23048621
  */
-public class MostWantedmodel {
+public class MostWantedModel {
     int Id;
     String Name;
     String Crime;
     int Bounty;
 
-    public MostWantedmodel(int Id, String Name, String Crime, int Bounty) {
+    public MostWantedModel(int Id, String Name, String Crime, int Bounty) {
         this.Id = Id;
         this.Name = Name;
         this.Crime = Crime;

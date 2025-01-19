@@ -4,21 +4,22 @@
  */
 package com.criminals.controller.Algorithm;
 
-import com.criminals.model.MostWantedmodel;
-import com.criminals.model.criminalmodel;
+import com.criminals.model.MostWantedModel;
+import com.criminals.model.CriminalModel;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
- * @author user
+ * @author Shuva Nath Shrestha 23048621
  */
 public class SelectionSort {
-    public List<criminalmodel> sortByCriminalId(List<criminalmodel> unsortedData, boolean isDesc) {
-        
-        List<criminalmodel> dataToSort = new ArrayList(); 
+
+    public List<CriminalModel> sortByCriminalId(List<CriminalModel> unsortedData, boolean isDesc) {
+
+        List<CriminalModel> dataToSort = new ArrayList();
         dataToSort.addAll(unsortedData);
-        
+
         for (int i = 0; i < dataToSort.size() - 1; i++) {
             //min value
             int minIndex = i;
@@ -35,17 +36,18 @@ public class SelectionSort {
                 }
             }
             //swap
-            criminalmodel tempStudent = dataToSort.get(minIndex);
+            CriminalModel tempStudent = dataToSort.get(minIndex);
             dataToSort.set(minIndex, dataToSort.get(i));
             dataToSort.set(i, tempStudent);
         }
         return dataToSort;
     }
-    public List<MostWantedmodel> sortByWantedId(List<MostWantedmodel> unsortedData, boolean isDesc) {
-        
-        List<MostWantedmodel> dataToSort = new ArrayList(); 
+
+    public List<MostWantedModel> sortByWantedId(List<MostWantedModel> unsortedData, boolean isDesc) {
+
+        List<MostWantedModel> dataToSort = new ArrayList();
         dataToSort.addAll(unsortedData);
-        
+
         for (int i = 0; i < dataToSort.size() - 1; i++) {
             //min value
             int minIndex = i;
@@ -62,18 +64,18 @@ public class SelectionSort {
                 }
             }
             //swap
-            MostWantedmodel tempCriminal = dataToSort.get(minIndex);
+            MostWantedModel tempCriminal = dataToSort.get(minIndex);
             dataToSort.set(minIndex, dataToSort.get(i));
             dataToSort.set(i, tempCriminal);
         }
         return dataToSort;
     }
-    
-    public List<MostWantedmodel> sortByBounty(List<MostWantedmodel> unsortedData, boolean isAsc) {
-        
-        List<MostWantedmodel> dataToSort = new ArrayList(); 
+
+    public List<MostWantedModel> sortByBounty(List<MostWantedModel> unsortedData, boolean isAsc) {
+
+        List<MostWantedModel> dataToSort = new ArrayList();
         dataToSort.addAll(unsortedData);
-        
+
         for (int i = 0; i < dataToSort.size() - 1; i++) {
             //min value
             int minIndex = i;
@@ -90,7 +92,7 @@ public class SelectionSort {
                 }
             }
             //swap
-            MostWantedmodel tempCriminal = dataToSort.get(minIndex);
+            MostWantedModel tempCriminal = dataToSort.get(minIndex);
             dataToSort.set(minIndex, dataToSort.get(i));
             dataToSort.set(i, tempCriminal);
         }

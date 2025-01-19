@@ -25,7 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-              <Component id="pnlLoadinScreen" max="32767" attributes="0"/>
+              <Component id="pnlLoadingScreen" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -33,13 +33,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="pnlLoadinScreen" max="32767" attributes="0"/>
+              <Component id="pnlLoadingScreen" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="pnlLoadinScreen">
+    <Container class="javax.swing.JPanel" name="pnlLoadingScreen">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="ff" red="ff" type="rgb"/>
@@ -54,12 +54,12 @@
                       <Component id="lblLoadingPicture" alignment="1" pref="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="LblLoadingLevel" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLoadingLevel" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="PrgBarLoading" alignment="1" pref="1414" max="32767" attributes="0"/>
+              <Component id="prgBarLoading" alignment="1" pref="1353" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -67,9 +67,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="lblLoadingPicture" min="-2" pref="616" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="LblLoadingLevel" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblLoadingLevel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="PrgBarLoading" pref="14" max="32767" attributes="0"/>
+                  <Component id="prgBarLoading" pref="14" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -78,17 +78,16 @@
         <Component class="javax.swing.JLabel" name="lblLoadingPicture">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/criminals/view/CSI-599586360.jpg"/>
+              <Image iconType="3" name="/com/criminals/resources/LoadinScreenPicture.jpg"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jLabel3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="LblLoadingLevel">
+        <Component class="javax.swing.JLabel" name="lblLoadingLevel">
           <Properties>
             <Property name="text" type="java.lang.String" value="0%"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JProgressBar" name="PrgBarLoading">
+        <Component class="javax.swing.JProgressBar" name="prgBarLoading">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>

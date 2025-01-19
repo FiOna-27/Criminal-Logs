@@ -53,7 +53,7 @@
                           <Group type="102" attributes="0">
                               <Component id="lblPass" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                              <Component id="DetectivePass" min="-2" pref="162" max="-2" attributes="0"/>
+                              <Component id="txtFldDetectivePassword" min="-2" pref="162" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -61,7 +61,7 @@
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-                              <Component id="DetectiveId" min="-2" pref="162" max="-2" attributes="0"/>
+                              <Component id="txtFldDetectiveId" min="-2" pref="162" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -77,16 +77,16 @@
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblId" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DetectiveId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFldDetectiveId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblPass" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DetectivePass" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFldDetectivePassword" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="btnValidate" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <EmptySpace pref="40" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -94,6 +94,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblTitle">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Register"/>
           </Properties>
         </Component>
@@ -107,12 +110,12 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DetectiveId">
+        <Component class="javax.swing.JTextField" name="txtFldDetectiveId">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DetectiveIdActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFldDetectiveIdActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="DetectivePass">
+        <Component class="javax.swing.JTextField" name="txtFldDetectivePassword">
         </Component>
         <Component class="javax.swing.JButton" name="btnValidate">
           <Properties>

@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author user
+ * @author Shuva Nath Shrestha 23048621
  */
 public class Login extends javax.swing.JFrame {
 
@@ -32,8 +32,8 @@ public class Login extends javax.swing.JFrame {
         lblLoginTitle = new javax.swing.JLabel();
         lblUsername = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
-        jtUsername = new javax.swing.JTextField();
-        jtPassword = new javax.swing.JTextField();
+        txtFldUsername = new javax.swing.JTextField();
+        txtFldPassword = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         btnRegister = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
@@ -44,7 +44,7 @@ public class Login extends javax.swing.JFrame {
         pnlLoginScreen.setBackground(new java.awt.Color(255, 255, 204));
 
         lblLoginTitle.setFont(new java.awt.Font("Malgun Gothic Semilight", 0, 36)); // NOI18N
-        lblLoginTitle.setText("Login screen");
+        lblLoginTitle.setText("Login");
 
         lblUsername.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblUsername.setText("Username");
@@ -52,9 +52,9 @@ public class Login extends javax.swing.JFrame {
         lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblPassword.setText("Password");
 
-        jtUsername.addActionListener(new java.awt.event.ActionListener() {
+        txtFldUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtUsernameActionPerformed(evt);
+                txtFldUsernameActionPerformed(evt);
             }
         });
 
@@ -79,7 +79,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/criminals/view/1.png"))); // NOI18N
+        lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/criminals/resources/LoginScreenPicture.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlLoginScreenLayout = new javax.swing.GroupLayout(pnlLoginScreen);
         pnlLoginScreen.setLayout(pnlLoginScreenLayout);
@@ -95,8 +95,8 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(lblPassword))
                         .addGap(126, 126, 126)
                         .addGroup(pnlLoginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlLoginScreenLayout.createSequentialGroup()
                                 .addComponent(btnLogin)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -105,7 +105,7 @@ public class Login extends javax.swing.JFrame {
                         .addGap(237, 237, 237)
                         .addComponent(btnReturn))
                     .addGroup(pnlLoginScreenLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
+                        .addGap(132, 132, 132)
                         .addComponent(lblLoginTitle)))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
@@ -118,11 +118,11 @@ public class Login extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addGroup(pnlLoginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblUsername)
-                            .addComponent(jtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtFldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(pnlLoginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPassword)
-                            .addComponent(jtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtFldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlLoginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnLogin)
@@ -149,26 +149,25 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtUsernameActionPerformed
+    private void txtFldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtUsernameActionPerformed
+    }//GEN-LAST:event_txtFldUsernameActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        if (jtUsername.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"please fill username and password","Message",JOptionPane.WARNING_MESSAGE);
-        }
-        else if (jtPassword.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"please fill password");
-        }
-        else if (jtUsername.getText().contains("admin") && jtPassword.getText().contains("admin")){
-            JOptionPane.showMessageDialog(null,"Login Sucessful");
+        if (txtFldUsername.getText().equals("")&&txtFldPassword.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "please fill username and password", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (txtFldPassword.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "please fill password");
+        }else if (txtFldUsername.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "please fill username");
+        } else if (txtFldUsername.getText().contains("admin") && txtFldPassword.getText().contains("admin")) {
+            JOptionPane.showMessageDialog(null, "Login Sucessful");
             AdminHomepage Ahp = new AdminHomepage();
             Ahp.show();
             dispose();
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Wrong Username or password","Message",JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Wrong Username or password", "Message", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -181,8 +180,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
-        HomePage HP = new HomePage();
-        HP.show();
+
         dispose();
     }//GEN-LAST:event_btnReturnActionPerformed
 
@@ -226,12 +224,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btnReturn;
-    private javax.swing.JTextField jtPassword;
-    private javax.swing.JTextField jtUsername;
     private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblLoginTitle;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JPanel pnlLoginScreen;
+    private javax.swing.JTextField txtFldPassword;
+    private javax.swing.JTextField txtFldUsername;
     // End of variables declaration//GEN-END:variables
 }

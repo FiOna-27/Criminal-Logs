@@ -6,14 +6,14 @@ package com.criminals.model;
 
 /**
  *
- * @author user
+ * @author Shuva Nath Shrestha 23048621
  */
-public class criminalmodel {
+public class CriminalModel {
     int Id;
     String Name;
     String Crime;
     String Sentence;
-    public criminalmodel(int Id,String Name,String Crime,String Sentence){
+    public CriminalModel(int Id,String Name,String Crime,String Sentence){
         this.Id = Id;
         this.Name = Name;
         this.Crime = Crime;
