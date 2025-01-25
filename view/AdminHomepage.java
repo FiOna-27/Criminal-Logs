@@ -84,14 +84,14 @@ public class AdminHomepage extends javax.swing.JFrame {
         addDataToTable1(Criminal5);
     }
 
-    private void addDataToTable(CriminalModel student) {
+    private void addDataToTable(CriminalModel criminal) {
         tableModel = (DefaultTableModel) tblAdminInCustody.getModel();
-        tableModel.addRow(new Object[]{student.getId(), student.getName(), student.getCrime(), student.getSentence()});
+        tableModel.addRow(new Object[]{criminal.getId(), criminal.getName(), criminal.getCrime(), criminal.getSentence()});
     }
 
-    private void addDataToTable1(MostWantedModel student) {
+    private void addDataToTable1(MostWantedModel criminal) {
         tableModel1 = (DefaultTableModel) tblMostWanted.getModel();
-        tableModel1.addRow(new Object[]{student.getId(), student.getName(), student.getCrime(), student.getBounty()});
+        tableModel1.addRow(new Object[]{criminal.getId(), criminal.getName(), criminal.getCrime(), criminal.getBounty()});
     }
 
     /**
