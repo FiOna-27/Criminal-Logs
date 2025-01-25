@@ -596,9 +596,9 @@ public class AdminHomepage extends javax.swing.JFrame {
                 }
             }
             if (IN == false) {
-                CriminalModel studentinfo = new CriminalModel(Id, Name, Crime, Sentence);
-                Criminal.add(studentinfo);
-                addDataToTable(studentinfo);
+                CriminalModel criminalinfo = new CriminalModel(Id, Name, Crime, Sentence);
+                Criminal.add(criminalinfo);
+                addDataToTable(criminalinfo);
             } else {
                 JOptionPane.showMessageDialog(this, "same id.", "Information", JOptionPane.INFORMATION_MESSAGE);
             }
